@@ -1,15 +1,26 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
+import React, { useContext } from "react";
 import { ProductListType } from "../Data/DataLists";
 import { useNavigation } from "@react-navigation/native";
+import { CartContext } from "./CartContext";
 
 export default function DataList(props: { items: ProductListType }) {
   const navigation = useNavigation<any>();
   const { items } = props;
+  const { addToCart } = useContext(CartContext);
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate("itemdisplay", { items })}
+        onPress={() => {
+          navigation.navigate("DetailList", items.category);
+        }}
       >
         <View style={styles.imgCnt}>
           <Image
@@ -34,7 +45,12 @@ export default function DataList(props: { items: ProductListType }) {
         </View>
       </TouchableOpacity>
       <View style={styles.addCartcnt}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            addToCart(items);
+            Alert.alert("Added", `${items.iname} added to cart`);
+          }}
+        >
           <Text style={{ fontSize: 10, fontWeight: "bold" }}>Add to Cart</Text>
         </TouchableOpacity>
       </View>
