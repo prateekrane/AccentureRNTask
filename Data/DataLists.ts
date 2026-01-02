@@ -91,13 +91,13 @@ export const categoriesList: CategoryType[] = [
     id: 13,
     category: "Toys",
     image:
-      "https://media.istockphoto.com/id/472369861/vector/toy-box-teddy-bear-guitar-ball-watercolor.webp?b=1&s=612x612&w=0&k=20&c=LizNyGPzCaFCPn5v5g0x14Vq3SJK7uu2t99Vad5Rf2s=",
+      "https://thumbs.dreamstime.com/b/heap-toys-eps-vector-illustration-48098461.jpg",
   },
   {
     id: 14,
     category: "Heels",
     image:
-      "https://i.pinimg.com/564x/db/00/29/db002964079c4f8650a0f9cb7909d034.jpg",
+      "https://img.freepik.com/premium-vector/colorful-women-shoes-high-heels-stiletto-womens-shoe-fashion-footwear-girls_263016-1095.jpg",
   },
 ];
 

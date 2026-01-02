@@ -9,15 +9,19 @@ import {
 } from "react-native";
 import React, { useContext } from "react";
 import { CartContext } from "../Components/CartContext";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Cart() {
   const { cart, increaseQty, decreaseQty, removeFromCart, total, clearCart } =
     useContext(CartContext);
 
+  const navigation = useNavigation<any>();
+
   const placeOrder = () => {
     if (cart.length === 0)
       return Alert.alert("Cart empty", "Add items to place order");
-    Alert.alert("Order placed", `Total: $${total}`);
+    Alert.alert("Order placed", `Total: $${total.toFixed(2)}`);
+    navigation.navigate("Home");
     clearCart();
   };
 
@@ -42,7 +46,7 @@ export default function Cart() {
               </Text>
               <Text style={{ color: "gray" }}>{item.brand}</Text>
               <Text style={{ marginTop: 8, fontWeight: "700" }}>
-                ${item.price}
+                ${item.price.toFixed(2)}
               </Text>
             </View>
             <View style={styles.qtyCnt}>
@@ -62,30 +66,32 @@ export default function Cart() {
             </View>
           </View>
         )}
-        ListFooterComponent={() => (
-          <View style={{ padding: 20 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginBottom: 20,
-              }}
-            >
-              <Text style={{ fontSize: 18, fontWeight: "700" }}>Total :</Text>
-              <Text
-                style={{ fontSize: 18, color: "#4A6D73", fontWeight: "700" }}
-              >
-                ${total}
-              </Text>
-            </View>
-            <TouchableOpacity style={styles.placeBtn} onPress={placeOrder}>
-              <Text style={{ color: "white", fontWeight: "700" }}>
-                Place Order
-              </Text>
-            </TouchableOpacity>
-          </View>
-        )}
       />
+
+      <View style={styles.summaryContainer}>
+        <Text style={styles.summaryTitle}>Total Price</Text>
+
+        {cart.map((item) => (
+          <View key={item.id} style={styles.summaryRow}>
+            <Text style={styles.summaryName}>{item.iname}</Text>
+            <Text style={styles.summaryQty}>{item.quantity}</Text>
+            <Text style={styles.summaryPrice}>
+              ${(item.price * item.quantity).toFixed(2)}
+            </Text>
+          </View>
+        ))}
+
+        <View style={styles.totalRow}>
+          <Text style={{ fontSize: 16, fontWeight: "700" }}>Total :</Text>
+          <Text style={{ fontSize: 16, color: "#4A6D73", fontWeight: "700" }}>
+            ${total.toFixed(2)}
+          </Text>
+        </View>
+
+        <TouchableOpacity style={styles.placeBtn} onPress={placeOrder}>
+          <Text style={{ color: "white", fontWeight: "700" }}>Place Order</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -118,5 +124,21 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 24,
     alignItems: "center",
+  },
+  summaryContainer: { padding: 16 },
+  summaryTitle: { fontSize: 18, fontWeight: "700", marginBottom: 12 },
+  summaryRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 6,
+    alignItems: "center",
+  },
+  summaryName: { flex: 1, fontSize: 14 },
+  summaryQty: { width: 40, textAlign: "center" },
+  summaryPrice: { width: 80, textAlign: "right", fontWeight: "700" },
+  totalRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 12,
   },
 });
