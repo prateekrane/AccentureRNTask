@@ -97,7 +97,7 @@ export const categoriesList: CategoryType[] = [
     id: 14,
     category: "Heels",
     image:
-      "https://img.freepik.com/premium-vector/colorful-women-shoes-high-heels-stiletto-womens-shoe-fashion-footwear-girls_263016-1095.jpg",
+      "https://img.freepik.com/premium-vector/picture-shoe-with-dollar-sign-it_9206-20616.jpg",
   },
 ];
 

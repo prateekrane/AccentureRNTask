@@ -21,7 +21,7 @@ export default function Cart() {
     if (cart.length === 0)
       return Alert.alert("Cart empty", "Add items to place order");
     Alert.alert("Order placed", `Total: $${total.toFixed(2)}`);
-    navigation.navigate("Home");
+    navigation.navigate("Category");
     clearCart();
   };
 

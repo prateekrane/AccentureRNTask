@@ -7,7 +7,7 @@ export default function Home() {
       <Image source={require("../assets/mainLogo.png")} style={styles.imgsty} />
       <View style={styles.txtcnt}>
         <Text style={styles.maintxt}>Shopping and Department Store.</Text>
-        <View style={{ marginTop: 30 }}>
+        <View style={{ marginTop: 15 }}>
           <Text style={styles.minitxt}>
             Shopping is a bit of a relaxing hobby for me, which is something
             troubling for the bank balance.
