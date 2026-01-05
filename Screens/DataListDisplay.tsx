@@ -29,19 +29,19 @@ export default function DataListDisplay(props: any) {
         numColumns={2}
         ListHeaderComponent={() => {
           return (
-            <View
-              style={{
-                height: 50,
-                justifyContent: "center",
-                backgroundColor: "#cceef5ff",
-                paddingLeft: 20,
-              }}
-            >
+            <View style={styles.headercnt}>
               <Text
                 style={{ color: "#375256ff", fontSize: 20, fontWeight: "800" }}
               >
                 Categories/{categoryName}
               </Text>
+            </View>
+          );
+        }}
+        ListFooterComponent={() => {
+          return (
+            <View style={styles.footercnt}>
+              <Text>End Of List</Text>
             </View>
           );
         }}
@@ -53,5 +53,16 @@ export default function DataListDisplay(props: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  headercnt: {
+    height: 50,
+    justifyContent: "center",
+    backgroundColor: "#cceef5ff",
+    paddingLeft: 20,
+  },
+  footercnt: {
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

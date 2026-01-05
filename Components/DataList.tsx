@@ -41,7 +41,7 @@ export default function DataList(props: { items: ProductListType }) {
             </Text>
           </View>
           <Text>{items.brand}</Text>
-          <Text>{items.ratting}/5</Text>
+          <Text>Ratting:{items.ratting}/5</Text>
         </View>
       </TouchableOpacity>
       <View style={styles.addCartcnt}>
