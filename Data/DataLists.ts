@@ -109,7 +109,7 @@ export const productsDataList: ProductListType[] = [
     brand: "Wakefit",
     price: 4500,
     category: "Furniture",
-    ratting: 4.2,
+    ratting: 5,
     imageuri:
       "https://media.istockphoto.com/id/1027047642/vector/vector-chair-on-white-background.jpg?s=612x612&w=0&k=20&c=Dn-ASQfSEVYrAw661ahzZCOd7ZkZPVPwosN7jkXK7YM=",
   },
@@ -139,7 +139,7 @@ export const productsDataList: ProductListType[] = [
     brand: "GreenSoul",
     price: 9000,
     category: "Furniture",
-    ratting: 4.3,
+    ratting: 3.3,
     imageuri:
       "https://static.vecteezy.com/system/resources/previews/017/416/183/non_2x/work-office-chair-cartoon-illustration-vector.jpg",
   },

@@ -10,6 +10,7 @@ import React, { useContext } from "react";
 import { ProductListType } from "../Data/DataLists";
 import { useNavigation } from "@react-navigation/native";
 import { CartContext } from "./CartContext";
+import RattingStartDisplay from "./RattingStartDisplay";
 
 export default function DataList(props: { items: ProductListType }) {
   const navigation = useNavigation<any>();
@@ -41,7 +42,10 @@ export default function DataList(props: { items: ProductListType }) {
             </Text>
           </View>
           <Text>{items.brand}</Text>
-          <Text>Ratting:{items.ratting}/5</Text>
+          <Text>
+            Ratting:{<RattingStartDisplay num={Math.floor(items.ratting)} />}{" "}
+            {`(${items.ratting})`}
+          </Text>
         </View>
       </TouchableOpacity>
       <View style={styles.addCartcnt}>
@@ -85,5 +89,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: "center",
     alignItems: "center",
+    marginTop: -10,
   },
 });
